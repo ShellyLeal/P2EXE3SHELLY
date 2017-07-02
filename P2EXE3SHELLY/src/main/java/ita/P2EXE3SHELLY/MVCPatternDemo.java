@@ -1,29 +1,44 @@
 package ita.P2EXE3SHELLY;
 
 public class MVCPatternDemo {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
-		// fetch student record based on his roll no from the database
-		Student model = retriveStudentFromDatabase();
+		
+				Student model1 = retriveStudentFromDatabase();
+				Professor model2 = retriveProfessorFromDatabase();
+				
+				
+				StudentView view = new StudentView();
+				ProfessorView view2 = new ProfessorView();
+				
+				
+				Factory fc = new Factory();
+				Controller controller1 = fc.newController(model1, view);
+				Controller controller2 = fc.newController(model2, view2);
+				
+				
+				controller1.updateView();
+				
+				controller1.setName("Shelly");
+				controller1.updateView();
+				controller1.setRollNo("02");
+				controller2.updateView();
+				controller2.setName("Augusto");
+				controller2.updateView();	
+				controller2.setRollNo("05");
+				controller2.updateView();	
+			}
 
-		// Create a view : to write student details on console
-		StudentView view = new StudentView();
-
-		StudentController controller = new StudentController(model, view);
-
-		controller.updateView();
-
-		// update model data
-		controller.setStudentName("John");
-
-		controller.updateView();
-	}
-
-	private static Student retriveStudentFromDatabase() {
-		Student student = new Student();
-		student.setName("Robert");
-		student.setRollNo("10");
-		return student;
-	}
-
+			static Student retriveStudentFromDatabase() {
+				Student student = new Student();
+				student.setName("Robert");
+				student.setRollNo("10");
+				return student;
+			}
+			static Professor retriveProfessorFromDatabase() {
+				Professor prof = new Professor();
+				prof.setName("Barreto");
+				prof.setRollNo("01");
+				return prof;
+			}	
 }

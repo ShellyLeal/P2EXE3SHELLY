@@ -1,6 +1,6 @@
 package ita.P2EXE3SHELLY;
 
-public class Student  implements Model{
+public class Professor implements Model{
 	private String rollNo;
 	private String name;
 
@@ -11,11 +11,11 @@ public class Student  implements Model{
 	public void setRollNo(String rollNo) {
 		this.rollNo = rollNo;
 	}
-
+	
 	public String getName() {
 		return name;
 	}
-
+	
 	public void setName(String name) {
 		this.name = name;
 	}

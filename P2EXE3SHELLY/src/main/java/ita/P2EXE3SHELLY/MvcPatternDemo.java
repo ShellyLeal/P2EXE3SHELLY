@@ -1,6 +1,6 @@
 package ita.P2EXE3SHELLY;
 
-public class MVCPatternDemo {
+public class MvcPatternDemo {
 	public static void main(String[] args) throws Exception {
 
 		
